@@ -11,30 +11,36 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'TaskController@index');
 Route::get('/hello', 'HomeController@hello');
 Route::get('/contect', 'HomeController@contect');
 
-//index create
-Route::get('/tasks', 'TaskController@index')->middleware('auth');;
+Route::prefix('tasks')->middleware('auth')->group(function(){
+    //index create
+    Route::get('/', 'TaskController@index');
 
-//move tasks
-Route::get('/tasks/create', 'TaskController@create');
+    //move tasks
+    Route::get('/create', 'TaskController@create');
 
-//create tasks
-Route::post('/tasks', 'TaskController@store');
+    //create tasks
+    Route::post('/', 'TaskController@store');
 
-//detail tasks
-Route::get('/tasks/{task}', 'TaskController@show');
+    //detail tasks
+    Route::get('/{task}', 'TaskController@show');
 
-//edit tasks
-Route::get('/tasks/{task}/edit', 'TaskController@edit');
+    //edit tasks
+    Route::get('/{task}/edit', 'TaskController@edit');
 
-//update tasks
-Route::put('/tasks/{task}', 'TaskController@update');
+    //update tasks
+    Route::put('/{task}', 'TaskController@update');
 
-//delete tasks
-Route::delete('/tasks/{task}', 'TaskController@destroy');
+    //delete tasks
+    Route::delete('/{task}', 'TaskController@destroy');
+});
+
+//manage route resource
+//Route::resource('tasks', 'TaskController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

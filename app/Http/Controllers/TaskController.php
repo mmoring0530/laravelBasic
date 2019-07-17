@@ -9,7 +9,7 @@ class TaskController extends Controller
 {
     //move index tasks page
     public function index(){
-      $tasks = Task::latest()->get();
+      $tasks = Task::latest()->where('user_id', auth()->id())->get();
 
       return view('tasks.index',[
         'tasks' => $tasks
@@ -22,23 +22,34 @@ class TaskController extends Controller
     }
 
     //move create task page
-    public function store(){
+    public function store(Request $request){
+      //variation
       request()->validate([
         'title' => 'required',
         'description' => 'required'
       ]);
-      $task = Task::create(request(['title', 'description']));
 
-      //old type
-      // $task = Task::create([
-      //   'title' => $request->input('title'),
-      //   'description' => $request->input('description')
-      // ]);
+      $task = Task::create([
+        'title' => $request->input('title'),
+        'description' => $request->input('description'),
+        'user_id' => auth()->id()
+      ]);
+
+      // $values = $request->input('title', 'description');
+      // $valuse['user_id'] = auth()->id();
+      // $task = Task::create($valuse);
+
 
       return redirect('/tasks/'.$task->id);
     }
 
+    //edit task
     public function show(Task $task){
+      
+      //abort_if(auth()->id() != $task->user_id, 403);
+      if(auth()->id() != $task->user_id){
+        abort(403);
+      }
       
       return view('tasks.show',[
         'task' => $task
@@ -46,6 +57,10 @@ class TaskController extends Controller
     }
 
     public function edit(Task $task){
+      if(auth()->id() != $task->user_id){
+        abort(403);
+      }
+
       return view('tasks.edit',[
         'task' => $task
       ]);
@@ -68,6 +83,10 @@ class TaskController extends Controller
     }
 
     public function destroy(Task $task){
+      if(auth()->id() != $task->user_id){
+        abort(403);
+      }
+      
       $task->delete();
       return redirect('/tasks');
     }

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title')
   Tasks
@@ -12,5 +12,5 @@
         <li>Title : {{ $task -> title}}, CreateDate : {{ $task -> created_at}}</li>
       </a>
     @endforeach
-  </li>
+  </ul>
 @endsection
