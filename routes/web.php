@@ -12,8 +12,6 @@
 */
 
 Route::get('/', 'TaskController@index');
-Route::get('/hello', 'HomeController@hello');
-Route::get('/contect', 'HomeController@contect');
 
 Route::prefix('tasks')->middleware('auth')->group(function(){
     //index create
