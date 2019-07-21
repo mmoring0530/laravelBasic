@@ -4,13 +4,17 @@
   Tasks
 @endsection
 @section('content')
-  <label for="email" class="col-md-4 col-form-label text-md-right ">Tasks List</label>
-  <a href="/tasks/create" ><button>Create</button></a><br>
-  <ul>
+  <div class="h1 text-center">Task List</div>
+  <div class="col text-center">
+    <a href="/tasks/create" ><button class="btn btn-primary">Create</button></a><br><br>  
+  </div>
+  
     @foreach($tasks as $task)
+    <div class="h2 text-center"><br>
       <a href="/tasks/{{$task -> id}}">
-        <li>Title : {{ $task -> title}}, CreateDate : {{ $task -> created_at}}</li>
+        Title : {{ $task -> title}}
       </a>
+    </div>
     @endforeach
   </ul>
 @endsection
