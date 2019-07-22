@@ -34,9 +34,13 @@
                     @enderror<br>
                         </div>
                     </div>
-                    <button>submit</button>
-                  </form>
-                  <a href="/tasks/{{ $task->id}}"><button>back</button></a><br>
+                    <div class="row justify-content-md-center">
+                    <button class="btn btn-primary">submit</button>
+                    </div>
+                  </form><br>
+                  <div class="row justify-content-md-center">
+                  <a href="/tasks/{{ $task->id}}"><button class="btn btn-primary">back</button></a><br>
+                </div>
                 </div>
             </div>
         </div>

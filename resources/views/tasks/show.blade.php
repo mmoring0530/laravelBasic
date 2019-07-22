@@ -24,13 +24,19 @@
                     {{ $task -> description }}<br>
                     </div>
                     </div>
+                      <div class="row justify-content-md-center">
+                        <a href="/tasks/{{ $task->id }}/edit"><button class="btn btn-primary">Edit</button></a><br><br>
+                      </div>
                       <form action="/tasks/{{ $task->id}}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <a href="/tasks/{{ $task->id }}/delete"><button>Delete</button></a><br>
-                      </form>
-                      <a href="/tasks/{{ $task->id }}/edit"><button>Edit</button></a><br>
-                      <a href="/tasks"><button>go to list</button></a><br>
+                        <div class="row justify-content-md-center">
+                          <a href="/tasks/{{ $task->id }}/delete"><button class="btn btn-primary">Delete</button></a><br>
+                        </div>
+                      </form><br>
+                      <div class="row justify-content-md-center">
+                        <a href="/tasks"><button class="btn btn-primary">go to list</button></a><br>
+                      </div>
 
         </div>
       </div>

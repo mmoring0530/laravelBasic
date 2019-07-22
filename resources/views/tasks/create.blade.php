@@ -34,18 +34,13 @@
                   @enderror
                       </div>
                     </div>      
-                    <div class="form-group row">
-                        <div class="col-lg-6 offset-lg-4">     
-                          <button>submit</button>
-                          
-                        </div>
+                    <div class="row justify-content-md-center"> 
+                        <button class="btn btn-primary">submit</button>
                     </div>
-                </form>
-                <div class="form-group row">
-                    <div class="col-lg-6 offset-lg-4">     
-                        <a href="/tasks"><button>back</button></a><br>    
+                </form><br>
+                <div class="row justify-content-md-center"> 
+                        <a href="/tasks"><button class="btn btn-primary">back</button></a><br>    
                   </div>
-                </div>
             </div>
         </div>
     </div>
