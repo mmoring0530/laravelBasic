@@ -57,7 +57,8 @@ class LoginController extends Controller
  
              //登録あればそのままログイン（2回目以降）
              Auth::login($user);
-             return redirect('/tasks');
+            //  return redirect('/tasks');
+            return redirect('/tasks');
  
          }else{
  

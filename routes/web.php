@@ -36,6 +36,18 @@ Route::prefix('tasks')->middleware('auth')->group(function(){
     Route::delete('/{task}', 'TaskController@destroy');
 });
 
+
+//注文管理
+Route::get('/order', 'OrderController@list');
+
+//予約管理
+Route::get('/reservation', 'ReservationController@list');
+
+//加盟店管理
+Route::get('/mdmanager', 'MdmanagerController@list');
+
+
+
 //manage route resource
 //Route::resource('tasks', 'TaskController');
 
@@ -47,3 +59,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 //google oAuth
 Route::get('auth/google', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/google/callback', 'Auth\LoginController@handleProviderCallback');
+

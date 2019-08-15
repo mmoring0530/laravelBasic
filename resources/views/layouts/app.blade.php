@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- <title>{{ config('app.name', 'laravel') }}</title> -->
-    <title>LaravelTest</title>
+    <title>M-POS</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -26,7 +26,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <!-- {{ config('app.name', 'laravel') }} -->
-                    Laravel Test
+                    M-POS
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -36,8 +36,17 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                        <a href="/tasks">Tasks</a>
-                        </li>
+                            <a href="/tasks">商品管理</a>
+                        </li>&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <li class="nav-item">
+                            <a href="/order">注文管理</a>
+                        </li>&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <li class="nav-item">
+                            <a href="/reservation">予約管理</a>
+                        </li>&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <li class="nav-item">
+                            <a href="/mdmanager">加盟店管理</a>
+                        </li>&nbsp&nbsp&nbsp&nbsp&nbsp
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -9,13 +9,13 @@
     <div class="row justify-content-md-center mt-5">
         <div class="col-md-8 col-md-offset-2">
             <div class="card">
-                <div class="card-header bg-dark text-white">Edit Tasks</div>
+                <div class="card-header bg-dark text-white">商品情報修正</div>
                 <div class="card-body">
                   <form action="/tasks/{{ $task->id}}" method="post">
                     @method('PUT')
                     @csrf
                     <div class="form-group row">
-                        <label class="col-lg-4 col-form-label text-lg-right">title</label>
+                        <label class="col-lg-4 col-form-label text-lg-right">商品名</label>
                         <div class="col-lg-6">
                     <input type="text" name="title" id="title" value="{{ old('description') ? old('description') : $task->title}}" required><br><br>
                     @error('title')
@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-4 col-form-label text-lg-right">Description</label>
+                        <label class="col-lg-4 col-form-label text-lg-right">詳細</label>
                         <div class="col-lg-6">
                     
                     <textarea name="description" id="description" required>{{ old('description') ? old('description') : $task->description }}</textarea><br>
@@ -35,11 +35,11 @@
                         </div>
                     </div>
                     <div class="row justify-content-md-center">
-                    <button class="btn btn-primary">submit</button>
+                    <button class="btn btn-primary">修正</button>
                     </div>
                   </form><br>
                   <div class="row justify-content-md-center">
-                  <a href="/tasks/{{ $task->id}}"><button class="btn btn-primary">back</button></a><br>
+                  <a href="/tasks/{{ $task->id}}"><button class="btn btn-primary">戻る</button></a><br>
                 </div>
                 </div>
             </div>
